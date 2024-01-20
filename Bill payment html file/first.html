@@ -1,0 +1,175 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bill Payment Project</title>
+    <style>
+        html {
+            display: block;
+        }
+       body{
+            margin:10px;
+            padding-left:300px;
+            padding-right:300px;
+            background-color:rgb(226, 235, 235);
+        }
+        header{
+            border:5px solid #e26c40;
+        }
+        .container {
+        display: flex;
+        justify-content: center;
+        background-color:rgba(236, 163, 75, 0.916);
+        transition: background-color 300ms;
+        margin-top: 0px;
+        }
+
+        img {
+        width:450px;
+        height:210px;
+        border-radius: 10px 0px 0px 700px;
+        border-bottom: 16px solid rgba(221, 134, 28, 0.916); 
+        border-left: 5px solid rgba(221, 134, 28, 0.916); 
+        }
+
+        .text {
+        color: rgb(255, 255, 255);
+        padding-left: 10px;
+        }
+
+        table{
+          align-items: center; 
+          margin:20px; 
+        }
+        table th{
+            padding:7px;
+        }
+        table td{
+            align-items: center;
+            padding:7px;
+        }
+        .foot{
+        display: flex;
+        background-color:rgba(236, 163, 75, 0.916);
+        transition: background-color 300ms;
+        font-weight:40px;
+        margin: 0px;
+        }
+        .foot table{
+            align-items:left;
+            color:white;
+            font-weight:40px;
+            margin: 0px;
+        }
+    </style>
+    <script>
+        function bill()
+        {
+        var dalq=parseInt(document.getElementById("dalq").value);
+        document.getElementById("sdala").innerHTML=dalq*40;
+
+        var riceq=parseInt(document.getElementById("riceq").value);
+        document.getElementById("sricea").innerHTML=riceq*10;
+
+        var chapatiq=parseInt(document.getElementById("chapatiq").value);
+        document.getElementById("schapatia").innerHTML=chapatiq*5;
+
+        var sabjiq=parseInt(document.getElementById("sabjiq").value);
+        document.getElementById("ssabjia").innerHTML=sabjiq*30;
+
+        var chapatiq=parseInt(document.getElementById("chapatiq").value);
+        document.getElementById("schapatia").innerHTML=chapatiq*5;
+
+        var subtotal=(dalq*40+riceq*10+chapatiq*5+sabjiq*30);
+        document.getElementById("subtotal").innerHTML=subtotal + " " + "rs";
+
+        var gst=subtotal*0.18;
+        document.getElementById("gst").innerHTML=gst;
+
+        var total=subtotal+gst;
+        document.getElementById("total").innerHTML=total + " " + "rs";
+        }
+    </script>
+</head>
+<body>
+<header>
+        <div class="container">
+            <div class="text">
+            <h1>The Winstonian Resturant</h1>
+                <h4><i style="font-size: 15px; color:darkolivegreen;">INVOICE TO :</i><br><b style="font-size: 20px; color: sienna;">JOHN SMITH</b><hr style="border:2px solid sienna; padding-top:0px; width:80%; margin-left:0;"></h4>
+            </div>
+            <div class="im">
+                <img src="assets/img.jpg" style="margin-top:0px;">
+            </div>
+        </div>
+        <center>
+       <table border="2px solid darkolivegreen" style="font-size:22px;">
+        <tr style="background-color: rgba(236, 163, 75, 0.916); color:white;">
+            <th>S.no</th>
+            <th>Items</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Amount</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Dal</td>
+            <td>40 rs</td>
+            <td><input type="number" id="dalq" maxlength="2" size="2"></td>
+            <td><label id="sdala"></label></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Rice</td>
+            <td>10 rs</td>
+            <td><input type="number" id="riceq"></td>
+            <td><label id="sricea"></label></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Chapati</td>
+            <td>05 rs</td>
+            <td><input type="number" id="chapatiq"></td>
+            <td><label id="schapatia"></label></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Sabji</td>
+            <td>30 rs</td>
+            <td><input type="number" id="sabjiq"><button onclick="bill()" style="padding:1px; margin-left:3px;">Submit</button></td>
+            <td><label id="ssabjia"></label></td>
+        </tr>
+        </table>
+    </center>
+
+    <div class="foot">
+        <table width="100%">
+            <tr><td><b>Payment Info :</b></td>
+                <td></td>
+                <td style="padding-left:70px; align-items: left;"><b>Sub Total :</b></td>
+                <td style="padding-left: 40px; align-items: left;"><b><label id="subtotal"></label></b></td>
+            </tr>
+            <tr><td><b>Account no :</b></td>
+                <td><b>123456789011</b></td>
+                <td style="padding-left: 70px; align-items: left;"><b>GST 18% :</b></td>
+                <td style="padding-left: 40px; align-items: left;"><b><label id="gst"></label></b></td>
+            </tr>
+            <tr>
+                <td><b>A/C Name :</b></td>
+                <td><b>Lorem Ipsum</b></td>
+                <td style="padding-left: 70px; align-items: left;"><hr style="border:2px solid white; padding-top:0px; width:120%;"><b>Total Amount :</b></td>
+                <td style="padding-left: 40px; padding-top:10px; align-items: left;"><b><label id="total"></label></b></td>
+            </tr>
+            <tr>
+                <td><b>Bank Details :</b></td>
+                <td><b>Add your bank details here</b></td>
+            </tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+        </table>
+    </div>
+</header>
+</body>
+</html>
